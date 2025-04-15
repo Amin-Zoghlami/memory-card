@@ -5,7 +5,11 @@ export default function Deck({ players, handleCardClick }) {
   return (
     <div className="deck">
       {players.map((player) => (
-        <Card player={player} handleCardClick={handleCardClick} />
+        <Card
+          key={player.id}
+          player={player}
+          handleCardClick={handleCardClick}
+        />
       ))}
     </div>
   );

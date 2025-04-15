@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getPlayers } from "./utils.js";
+import { getPlayers, shuffleArray } from "./utils.js";
 import Scoreboard from "./components/scoreboard.jsx";
 import Deck from "./components/deck.jsx";
 
@@ -22,16 +22,27 @@ function App() {
   }, []);
 
   function handleCardClick(id) {
-    setPlayers(
-      players.map((player) => {
-        if (player.id === id) {
-          if (player.isClicked) return player;
-          return { ...player, isClicked: true };
-        }
-        return player;
-      })
+    const clickedPlayer = players.find((player) => player.id === id);
+
+    if (clickedPlayer.isClicked) {
+      const updatedPlayers = players.map((player) => ({
+        ...player,
+        isClicked: false,
+      }));
+      const shuffledPlayers = shuffleArray(updatedPlayers);
+      setPlayers(shuffledPlayers);
+      return;
+    }
+
+    const updatedPlayers = players.map((player) =>
+      player.id === id ? { ...player, isClicked: true } : player
     );
+
+    const shuffledPlayers = shuffleArray(updatedPlayers);
+
+    setPlayers(shuffledPlayers);
   }
+
   return (
     <div>
       <Scoreboard score={score} />
