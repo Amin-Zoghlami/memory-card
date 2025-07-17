@@ -1,0 +1,22 @@
+.card {
+  background-color: #d50032;
+  color: #ffffff;
+  width: 213px;
+  padding: 15px 20px;
+  border-radius: 2.5%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card h1 {
+  font-size: 40px;
+  margin: 5px;
+}
+
+.card:hover {
+  background-color: #9b0024;
+}
+
+.card:active {
+  background-color: #640017;
+}

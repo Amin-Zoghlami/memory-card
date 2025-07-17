@@ -10,7 +10,8 @@ async function getPlayers(n = 15, season = 2025) {
 
     return shuffledPlayers.slice(0, n).map((player) => ({
       id: player.id,
-      fullName: player.fullName,
+      firstName: player.firstName,
+      lastName: player.lastName,
       img: `https://img.mlbstatic.com/mlb-photos/image/upload/w_213,d_people:generic:headshot:silo:current.png,q_auto:best,f_auto/v1/people/${player.id}/headshot/67/current`,
     }));
   } catch (e) {

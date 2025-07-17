@@ -1,0 +1,45 @@
+body {
+  background-color: #002d72;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  font-family: impact, sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 50px;
+  margin: 0;
+}
+
+.title {
+  margin-top: 10px;
+}
+
+.logo {
+  max-width: 250px;
+}
+
+.feature {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 50px;
+}
+
+.win {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.win h1 {
+  font-size: 200px;
+}
