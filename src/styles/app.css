@@ -31,6 +31,7 @@ h1 {
 
 .feature {
   display: flex;
+  align-items: center;
   margin-bottom: 10px;
   gap: 50px;
 }

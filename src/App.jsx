@@ -9,6 +9,7 @@ import "./styles/app.css";
 function App() {
   const [players, setPlayers] = useState([]);
   const score = players.filter((player) => player.isClicked).length;
+  const [highScore, setHighScore] = useState(0);
 
   async function fetchPlayers() {
     const playersData = await getPlayers();
@@ -24,11 +25,15 @@ function App() {
     fetchPlayers();
   }, []);
 
+  useEffect(() => {
+    if (score > highScore) {
+      setHighScore(score);
+    }
+  }, [score, highScore]);
+
   function handleCardClick(id) {
     const clickedPlayer = players.find((player) => player.id === id);
 
-    if (score >= 15) {
-    }
     if (clickedPlayer.isClicked) {
       const updatedPlayers = players.map((player) => ({
         ...player,
@@ -56,7 +61,7 @@ function App() {
         <p>Don't click on the same player twice</p>
       </header>
       <div className="feature">
-        <Scoreboard score={score} />
+        <Scoreboard score={score} highScore={highScore} />
         <Reset resetGame={fetchPlayers} />
       </div>
       <div className="game">
